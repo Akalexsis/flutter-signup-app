@@ -20,6 +20,16 @@ class _SignupPageState extends State<SignupPage> {
     final TextEditingController _emailController = TextEditingController();
     final TextEditingController _passwordController = TextEditingController();
     final TextEditingController _confirmPswdController = TextEditingController();
+
+    // clear all fields on successful signup
+    void _resetForm() {
+        setState(() {
+            _nameController.text = '';
+            _emailController.text = '';
+            _passwordController.text = '';
+            _confirmPswdController.text = '';
+        });
+    }
     
     @override
     Widget build(BuildContext context) {
@@ -123,6 +133,7 @@ class _SignupPageState extends State<SignupPage> {
                 ElevatedButton(
                     onPressed: () {
                     if (_formKey.currentState!.validate()) { // what is validate() ?
+                        _resetForm();
                         ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                             content: Text('Welcome! Account created successfully.'), // TO-DO add name
@@ -132,12 +143,12 @@ class _SignupPageState extends State<SignupPage> {
                     }
                     },
                     style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                        backgroundColor: Colors.purple,
+                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                     ),
                     child: const Text(
-                    'Sign Up',
-                    style: TextStyle(fontSize: 18),
+                        'Sign Up',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
               ),
             ],

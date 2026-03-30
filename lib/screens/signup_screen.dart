@@ -3,6 +3,7 @@
     Purpose - Signup form for users to create a new account
  */
 import 'package:flutter/material.dart';
+import './success_screen.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -165,13 +166,13 @@ class _SignupPageState extends State<SignupPage> {
                 ElevatedButton(
                     onPressed: () {
                     if (_formKey.currentState!.validate()) { 
-                        _resetForm();
-                        ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                            content: Text('Welcome! Account created successfully.'), // TO-DO add name
-                            backgroundColor: Colors.green,
-                        ),
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SuccessPage(name: _nameController.text),
+                            ),
                         );
+                        _resetForm();
                     }
                     },
                     style: ElevatedButton.styleFrom(

@@ -5,7 +5,7 @@ void main() {
   runApp(const MyApp());
 }
 
-// 🧓 Great-Grandparent
+// Great-Grandparent
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

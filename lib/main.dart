@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import './signup.dart';
+import './screens/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-// 🧓 Great-Grandparent
+// Great-Grandparent
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple
       ),
-      home: const SignupPage(),
+      home: const SignupPage(), 
     );
   }
 }
